@@ -69,7 +69,7 @@ make re      # fclean + all
 | **naankour** | Bootstrapped the backend, set up the Docker infrastructure and Prisma ORM; owns follows/followers, favorites, watchlist, and reviews (API/controller); built the reviews, follows, watchlist, and favorites pages        |
 | **ilhasnao** | Genres feature (API/controller); Discover page (search & filtering); chat module (WebSockets)                                                           |
 | **mpinguet** | Films feature (API/controller); Films page; reviews feature; profile edit frontend;  Support interface for ilhasnao within the profile section          |
-| **zamohame** | Users feature (API/controller); authentication (incl. OAuth) and profile system: avatar upload, password management, profile editing                    |
+| **zamohame** | Users feature (API/controller); chat (API/controller); authentication (incl. OAuth) and profile system: avatar upload, password management, profile editing                    |
 | **cmontaig** | Actors feature (API/controller), homepage modules, header/footer, global search + search results page, site translation (i18next)                       |
 
 ## Team Roles
