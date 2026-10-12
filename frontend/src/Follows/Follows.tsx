@@ -47,7 +47,6 @@ const Follows = ({ triggerToast, userId, isOwnProfile = true }: FollowsProps) =>
             return res.json();
         })
         .then(data => {
-            // console.log(data);
 
             setFollows(data);
             setLoading(false);

@@ -52,7 +52,6 @@ make
 | `frontend` | React app (Vite dev server)    | http://localhost:5173 |
 | `backend`  | Express API + WebSocket server | http://localhost:3000 |
 | `database` | PostgreSQL 16                  | localhost:5432        |
-| `pgadmin`  | DB admin UI                    | http://localhost:5050 |
 
 Other Makefile commands:
 
@@ -111,7 +110,7 @@ make re      # fclean + all
 
 ### Infrastructure
 
-* **Docker Compose**, orchestrating `nginx`, `frontend`, `backend`, `database` (Postgres) and `pgadmin`
+* **Docker Compose**, orchestrating `nginx`, `frontend`, `backend`, `database` (Postgres)
 * **Nginx** as the reverse proxy / single entry point (HTTPS on port 443)
 * A Prisma seed script populates the database with initial movie/actor data from **TMDB**
 

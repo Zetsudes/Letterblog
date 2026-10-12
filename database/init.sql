@@ -1,6 +1,3 @@
-
--- ici on crée les tables du projet
-
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY, 
     firstname VARCHAR(30),
@@ -159,8 +156,3 @@ CREATE TABLE IF NOT EXISTS messages (
     FOREIGN KEY (conversation_id) REFERENCES conversations(id) ON DELETE CASCADE,
     FOREIGN KEY (sender_id) REFERENCES users(id) ON DELETE CASCADE
 );
-
--- ajout du bon vieux victor mcbernick pour voir si l'automatisation marche bien
-INSERT INTO users (firstname, lastname, username, email, password_hash, bio) 
-VALUES ('Victor', 'McBernick', 'Le V', 'vivipirate06@gmail.com', 'allezvivi.com', 'je suis le roi des pirates')
-ON CONFLICT DO NOTHING;
