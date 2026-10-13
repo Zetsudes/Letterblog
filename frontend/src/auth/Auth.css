@@ -1,9 +1,5 @@
 /* ============================================================
-   SKYBLOG — Y2K NEON AUTH (Tailwind @apply version)
-
-   Tailwind v4 only: @reference lets this file use @apply without
-   re-importing all of Tailwind. Point it at the CSS file that
-   contains `@import "tailwindcss";`. Tailwind v3 users: delete it.
+   SKYBLOG — Y2K NEON AUTH 
    ============================================================ */
 @reference "../index.css";
 
