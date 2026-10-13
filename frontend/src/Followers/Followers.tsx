@@ -3,7 +3,7 @@ import "./Followers.css"
 import FollowsButton from "../components/FollowsButton";
 import { Link } from "react-router-dom";
 
-const Followers = ({ triggerToast }) => {
+const Followers = ({ userId, isOwnProfile, triggerToast }: any) => {
     const [followers, setFollowers] = useState([])
     const [myFollows, setMyFollows] = useState([]);
     const [loading, setLoading] = useState(true)
@@ -21,7 +21,7 @@ const Followers = ({ triggerToast }) => {
                 return res.json();
             }),
 
-            fetch('/api/follows/followers', {
+            fetch(`/api/follows/followers/user/${userId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -39,7 +39,7 @@ const Followers = ({ triggerToast }) => {
             setError(err.message);
             setLoading(false);
         });
-    }, []);
+    }, [userId]);
 
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error : {error}</p>

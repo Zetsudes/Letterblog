@@ -15,8 +15,6 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    ports:
-      - "5173:5173"
     volumes:
       - ./frontend:/app
       - /app/node_modules
@@ -51,9 +49,7 @@ services:
     image : postgres:16-alpine
     container_name: database_container
     volumes:
-    # sauvegarde la DB pour éviter de tout perdre qd on coupe Docker
       - db_data:/var/lib/postgresql/data
-    # docker lit ce fichier au lancement pour créer les tables
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       - POSTGRES_DB=${POSTGRES_DB}
@@ -63,28 +59,6 @@ services:
       - "5432:5432"
     networks:
       - tr_network
-    restart: always
-
-  # =======================================================
-  # pgAdmin : interface graphique pour gérer la database
-  # accès sur le navigateur via http://localhost:5050
-  # =======================================================
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin_container
-    environment:
-    # identifiants pour se connecter sur la page
-      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
-      - PGADMIN_DEFAULT_PASSWORD=admin
-    volumes:
-    # charge automatiquement la database dans pgAdmin pour ne pas avoir à la rentrer à la mano
-      - ./database/servers.json:/pgadmin4/servers.json
-    ports:
-      - "5050:80"
-    networks:
-      - tr_network
-    depends_on:
-      - database
     restart: always
 
 networks:

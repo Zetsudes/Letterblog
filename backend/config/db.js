@@ -15,15 +15,15 @@ const initializeDatabase = async () => {
   while (retries > 0) {
     try {
       await pool.query('SELECT 1;')
-      console.log("🚀 Connected to PostgreSQL successfully!")
+      console.log(" Connected to PostgreSQL successfully!")
       return true
     } catch (err) {
       retries--
 
-      console.log(`⏳ Database not ready yet. Retries left: ${retries}...`)
+      console.log(` Database not ready yet. Retries left: ${retries}...`)
 
       if (retries === 0) {
-        console.error("❌ Database connection failed completely:", err)
+        console.error(" Database connection failed completely:", err)
         throw err
       }
 

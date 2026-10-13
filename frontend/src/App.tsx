@@ -3,18 +3,6 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { socket } from '../socket';
 
-// const3 socket = io("http://localhost:3000", {
-//   transports: ["websocket"]
-// });
-
-// socket.on("connect", () => {
-//   console.log("Socket connecté :", socket.id);
-// });
-
-// socket.on("connect_error", (error) => {
-//   console.log("Erreur socket :", error.message);
-// });
-
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './HomePage/HomePage';
 import MoviePage from './MoviePage/MoviePage';
@@ -28,8 +16,6 @@ import Follows from './Follows/Follows';
 import Followers from './Followers/Followers';
 import MyReviews from './MyReviews/MyReviews'
 import Reviews from './Reviews/Reviews'
-import CreateReview from './pages/CreateReview'
-import EditReview from './pages/EditReview'
 import ActorPage from './ActorPages/ActorPage';
 import Header from './layout/Header';
 import SearchResultsPage from './SearchResult/SearchResultsPage';
@@ -97,8 +83,6 @@ return (
           <Route path="/follows/followers" element={<Followers triggerToast={triggerToast} />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/reviews/me" element={<MyReviews />} />
-          <Route path="/reviews/create" element={<CreateReview />} />
-		  <Route path="/reviews/:id/edit" element={<EditReview />} />
           <Route path="/search/:query" element={<SearchResultsPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />

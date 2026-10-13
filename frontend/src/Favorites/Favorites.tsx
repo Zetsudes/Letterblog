@@ -62,8 +62,6 @@ useEffect(() =>
     })
     .then(data => 
     {
-      console.log(data);
-
       if (data.length > 0)
       {
         console.log(data[0].movies);
