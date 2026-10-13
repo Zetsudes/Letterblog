@@ -200,7 +200,7 @@ const githubCallback = async (req, res) => {
       { expiresIn: '24h' }
     );
 
-    return res.redirect(`http://localhost:5173/auth?token=${jwtToken}`);
+    return res.redirect(`https://localhost:8443/auth?token=${jwtToken}`);
   } catch (error) {
     console.error('GitHub OAuth Error:', error.response?.data || error.message);
     return res.status(500).json({ error: 'GitHub Authentication failed' });
@@ -210,7 +210,7 @@ const githubCallback = async (req, res) => {
 const googleLogin = (req, res) => {
   const rootUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
   const options = {
-    redirect_uri: 'http://localhost:5173/api/auth/google/callback',
+    redirect_uri: 'https://localhost:8443/api/auth/google/callback',
     client_id: process.env.GOOGLE_CLIENT_ID,
     access_type: 'offline',
     response_type: 'code',
@@ -237,7 +237,7 @@ const googleCallback = async (req, res) => {
       code,
       client_id: process.env.GOOGLE_CLIENT_ID,
       client_secret: process.env.GOOGLE_CLIENT_SECRET,
-      redirect_uri: 'http://localhost:5173/api/auth/google/callback',
+      redirect_uri: 'https://localhost:8443/api/auth/google/callback',
       grant_type: 'authorization_code',
     });
 
@@ -279,7 +279,7 @@ const googleCallback = async (req, res) => {
       { expiresIn: '24h' }
     );
 
-    return res.redirect(`http://localhost:5173/auth?token=${jwtToken}`);
+    return res.redirect(`https://localhost:8443/auth?token=${jwtToken}`);
   } catch (error) {
     console.error('Google OAuth Error:', error.response?.data || error.message);
     return res.status(500).json({ error: 'Google Authentication failed' });
